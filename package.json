@@ -1,0 +1,21 @@
+{
+  "name": "bonsai-demos",
+  "author": "Dustan Kasten <dustan@skookum.com>",
+  "url": "http://github.com/iamdustan/bonsai-demos",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/cloudhead/node-static"
+  },
+  "scripts": {
+    "start": "./node_modules/node-static/bin/cli.js"
+  },
+  "version": "0.0.1",
+  "dependencies": {
+    "bonsai": "git+ssh://git@github.com:uxebu/bonsai.git",
+    "socket.io": "~0.9.10",
+    "node-static": "~0.6.4"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  }
+}

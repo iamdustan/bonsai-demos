@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Jasmine Spec Runner</title>
+
+  <link rel="stylesheet" type="text/css" href="../lib/jasmine-core/jasmine.css">
+  <script type="text/javascript" src="../lib/jasmine-core/jasmine.js"></script>
+  <script type="text/javascript" src="../lib/jasmine-core/jasmine-html.js"></script>
+  <script type="text/javascript" src="../lib/jasmine-core/jasmine.junit-reporter.js"></script>
+  <script type="text/javascript" src="../lib/jasmine-console/console-runner.js"></script>
+  <script type="text/javascript" src="jasmine.compare-reporter.js"></script>
+  <script type="text/javascript" src="jasmine-matchers.js"></script>
+  <script type="text/javascript">
+    var require = {
+      paths: {
+        bonsai: '../src'
+      },
+      urlArgs: +new Date
+    };
+  </script>
+  <script type="text/javascript" src="../lib/requirejs/require.js"></script>
+  <script>
+  require([
+    // the require module
+    'require',
+
+    // types
+    './uri-spec',
+
+    // other
+    './player-spec',
+    './renderer_controller-spec',
+
+    './event_emitter-spec',
+    './segment_helper-spec',
+    './tools-spec',
+    './color-spec.js',
+    './gradient-spec',
+    './asset_display_object-spec',
+    './display_object-spec',
+    './display_list-spec',
+    './dom_element-spec',
+    './font_family-spec',
+    './group-spec',
+    './timeline-spec',
+    './point-spec',
+
+    './path/path-spec',
+    './path/arc-spec',
+    './path/circle-spec',
+    './path/ellipse-spec',
+    './path/polygon-spec',
+    './path/rect-spec',
+    './path/star-spec',
+
+    './stage-spec',
+    './curved_path-spec',
+    './animation/animation-spec',
+    './animation/keyframe_animation-spec',
+    './animation/property_tween-spec',
+    './animation/properties_tween-spec',
+    './text-spec',
+    './filter/base_filter-spec',
+    './filter/builtin-spec',
+    './matrix-spec',
+    './movie-spec',
+    // TODO: fix execution of this file to not throw "self.blocks[self.index] is undefined" on the console
+    './asset-loading-spec',
+    './asset-request-spec',
+    './asset_handler-spec',
+    './asset_audio_handler-spec',
+    './asset-resource-spec',
+    './uri-spec',
+    './bitmap-spec',
+
+    // multimedia
+    './media_display_object-spec',
+    './audio-spec',
+    './video-spec',
+
+    // events
+    './ui_event-spec',
+
+    // svg renderer
+    './renderer/svg-spec',
+    './renderer/svg_filters-spec',
+    './renderer/svg_helper-spec',
+    './renderer/svg_renderer_svg-spec'
+  ], function(require) {
+    // execute specs
+    require(['./runner.js']);
+  });
+
+  </script>
+</head>
+
+<body>
+</body>
+</html>
