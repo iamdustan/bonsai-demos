@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Bonsai Boilerplate</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+  <link href="//fonts.googleapis.com/css?family=PT+Sans:400" rel="stylesheet">
+  <link href="//fonts.googleapis.com/css?family=Cabin:700" rel="stylesheet">
+</head>
+<body class="demo">
+  <h1>Separating the Runner Code</h1>
+  <a href="../">Back to article</a>
+  <div id="movie"></div>
+
+  <div id="editor">// ui.js
+stage.on('message', handleMessage)
+stage.on('pointerdown', handlePointerdown)
+stage.on('keypress', handleKeypress)
+
+function handleMessage(message) {
+  if (message.type === 'Rect' && message.attr)
+    new Rect(message.attr.x, message.attr.y, message.attr.w, message.attr.h)
+      .attr(message.attr)
+      .fill(message.attr.fill || 'random')
+      .addTo(stage);
+}
+
+function handlePointerdown (e) {
+  handleMessage({
+    type: 'Rect',
+    attr: {
+      x: e.stageX-25,
+      y: e.stageY-25,
+      w: 50,
+      h: 50
+    }
+  })
+}
+
+function handleKeypress (e) {
+  stage.sendMessage('keypress', e.keyCode);
+}
+
+
+// app.js
+var stage = bonsai.run(movie, {
+  url: './movie.js',
+  plugins: ['./ui.js'],
+  width: 600,
+  height: 400
+});
+
+stage.sendMessage({
+  type: 'Rect',
+  attr: {
+    x: Math.random() * 100, y: Math.random() * 100,
+    w: Math.random() * 100, h: Math.random() * 100
+  }
+});
+
+stage.on('message:keypress', function (data) {
+  console.log('Hey! Someone touched me at {keyCode}! - the
+Keyboard'.replace(/{keyCode}/g, data));
+});</div>
+
+  <script src="../assets/bonsai.js"></script>
+
+  <script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" charset="utf-8"></script>
+  <script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/javascript");
+    editor.setReadOnly(true);
+    editor.blur()
+  </script>
+  <script>
+    var stage = bonsai.run(movie, {
+      url: './movie.js',
+      plugins: ['./ui.js'],
+      width: 600,
+      height: 400
+    });
+
+    stage.on('start', function () {
+      stage.sendMessage({
+        type: 'Rect',
+        attr: {
+          x: Math.random() * 300, y: Math.random() * 300,
+          w: Math.random() * 100, h: Math.random() * 100
+        }
+      });
+    });
+
+    stage.on('message:keypress', function (data) {
+      console.log('Hey! Someone touched me at {keyCode}! - the Keyboard'.replace(/{keyCode}/g, data));
+    });
+  </script>
+</body>
+</html>
+
+

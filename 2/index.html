@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Bonsai Boilerplate</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+  <link href="//fonts.googleapis.com/css?family=PT+Sans:400" rel="stylesheet">
+  <link href="//fonts.googleapis.com/css?family=Cabin:700" rel="stylesheet">
+</head>
+<body class="demo">
+  <h1>Separating the Runner Code</h1>
+  <a href="../">Back to article</a>
+  <div id="movie"></div>
+
+  <div id="editor">// movie.js
+var rect = new Rect(0, 0, 200, 200);
+rect
+  .fill('random')
+  .addTo(stage)
+  .attr({
+    x: stage.width - rect.attr('width'),
+    y: stage.width - rect.attr('height')
+  })
+  .animate('0.5s', {
+    x: 0,
+    y: 0
+  });
+
+
+//app.js
+var element = document.getElementById('movie');
+bonsai.run(movie, {
+  url: './movie.js',
+  plugins: []
+  width: 600,
+  height: 400
+});</div>
+
+  <script src="../assets/bonsai.js"></script>
+
+  <script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" charset="utf-8"></script>
+  <script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/javascript");
+    editor.setReadOnly(true);
+  </script>
+  <script>
+    var element = document.getElementById('movie');
+    bonsai.run(element, {
+      url: './movie.js',
+      width: 600,
+      height: 400
+    });
+  </script>
+</body>
+</html>
+

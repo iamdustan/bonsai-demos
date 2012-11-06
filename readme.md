@@ -146,8 +146,8 @@ rect
 // app.js
 var element = document.getElementById('movie');
 bonsai.run(movie, {
-  movie: 'path/to/movie.js',
-  plugins: []
+  url: 'path/to/movie.js',
+  plugins: [],
   width: 600,
   height: 400
 });
@@ -178,9 +178,15 @@ function handleMessage(message) {
 }
 
 function handlePointerdown (e) {
-  new Rect(e.stageX, e.stageY, 50, 50)
-    .fill('random')
-    .addTo(stage);
+  handleMessage({
+    type: 'Rect',
+    attr: {
+      x: e.stageX-25,
+      y: e.stageY-25,
+      w: 50,
+      h: 50
+    }
+  })
 }
 
 function handleKeypress (e) {
@@ -192,13 +198,21 @@ function handleKeypress (e) {
 // app.js
 var element = document.getElementById('movie');
 var stage = bonsai.run(movie, {
-  movie: 'path/to/movie.js',
-  plugins: ['path/to/ui.js']
+  url: 'path/to/movie.js',
+  plugins: ['path/to/ui.js'],
   width: 600,
   height: 400
 });
 
-stage.on('message', function (data) {
+stage.sendMessage({
+  type: 'Rect',
+  attr: {
+    x: Math.random() * 100, y: Math.random() * 100,
+    w: Math.random() * 100, h: Math.random() * 100
+  }
+});
+
+stage.on('message:keypress', function (data) {
   console.log('Hey! Someone touched me at {keyCode}! - the
 Keyboard'.replace(/{keyCode}/g, data));
 });
