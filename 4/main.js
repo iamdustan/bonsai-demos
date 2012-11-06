@@ -34,6 +34,6 @@ bonsai
   })
   .run(movie, {
     width: 600,
-    height: 400
+    height: 600
   });
 

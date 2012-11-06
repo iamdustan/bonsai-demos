@@ -11,6 +11,8 @@ on for it&rsquo;s Flash conversion. If you are familiar with Flash
 development or terminology you already have a grasp of how to create
 with bonsai.
 
+> Note. All of this code is available at [https://github.com/iamdustan/bonsai-demos](https://github.com/iamdustan/bonsai-demos). To view demos, `git clone git@github.com:iamdustan/bonsai-demos && npm start` then browse to `http://localhost:8080` in your favorite browser.
+
 ## From Tree Level
 
 A few things to note as you walk into the bonsai forest. Due to the
@@ -30,7 +32,7 @@ you want to trigger (say, pressing a Start button).
 These are just a few of the objects bonsai makes available to you in the
 runner context.
 
-**[Simple shapes](http://docs.bonsaijs.org/overview/SimpleShapes.html):**
+**[Simple shapes](http://docs.bonsaijs.org/overview/SimpleShapes.html)**
 
 * Rect
 * Arc
@@ -58,7 +60,7 @@ runner context.
 
 Getting started with bonsai always seems to be the biggest hurdle. The
 documentation has recently been super-sized with an explanation of the
-execution environment that is required reading. [Bonsai
+execution environment that is required reading: [Bonsai
 execution](http://docs.bonsaijs.org/overview/Execution.html).
 
 Through the following examples, you will have everything you need to
@@ -123,7 +125,7 @@ break that off.
 ### Separating Things Out
 
 Let&rsquo;s begin by moving that runner method into a file to call its
-own.
+own, following the Flash semantics, `movie.js`.
 
 ``` javascript
 // movie.js
@@ -154,7 +156,7 @@ bonsai.run(movie, {
 ```
 
 Well, that was easy enough. Bonsai here is taking the file you specify
-under the `movie` key and loading into the appropriate context.
+under the `url` key and loading into the appropriate runner context.
 
 ### Don&rsquo;t Forget to Listen to Your Users
 
@@ -230,6 +232,8 @@ configuration object all at the same time. We will use a slightly
 different version this time where we first call setup passing in a
 Socket.io runner context.
 
+> note: This demo uses a currently custom build of Bonsai that exposes a few internal utilities. Grab it here: https://github.com/uxebu/bonsai-server/blob/master/example/bonsai.js
+
 ``` javascript
 // main.js
 
@@ -269,14 +273,14 @@ bonsai
   })
   .run(movie, {
     width: 600,
-    height: 400
+    height: 600
   });
 ```
 
 ``` javascript
 // movie.js
 // this is read by and run on the server
-// @todo REWRITE THIS YOURSELF
+// demo from http://demos.bonsaijs.org/demos/circles/index.html
 var centerX = 250,
     centerY = 250,
     circles = 180,
@@ -320,12 +324,12 @@ stage.on(0, function() {
 var bonsai = require('bonsai');
 var fs = require('fs');
 
-var bonsaiCode = fs.readFileSynce('./movie.js');
+var bonsaiCode = fs.readFileSync('./movie.js');
 var socketRenderer = function (socket) {
   this.socket = socket;
 };
 
-var socket = require('socket.io').listen(3000);
+var socket = require('socket.io').listen(4000);
 
 socket.sockets.on('connection', function (socket) {
   var movie = bonsai.run(null, {

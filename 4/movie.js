@@ -1,6 +1,6 @@
 // movie.js
 // this is read by and run on the server
-// @todo REWRITE THIS YOURSELF
+// demo from http://demos.bonsaijs.org/demos/circles/index.html
 var centerX = 250,
     centerY = 250,
     circles = 180,
