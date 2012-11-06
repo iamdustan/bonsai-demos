@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Bonsai Boilerplate</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+  <link href="//fonts.googleapis.com/css?family=PT+Sans:400" rel="stylesheet">
+  <link href="//fonts.googleapis.com/css?family=Cabin:700" rel="stylesheet">
+</head>
+<body class="demo">
+  <h1>A Node Runner with Socket.io</h1>
+  <a href="../">Back to article</a>
+  <div id="movie"></div>
+
+  <div id="editor"></div>
+
+  <script src="//localhost:4000/socket.io/socket.io.js"></script>
+  <script src="/4/custom-bonsai.js"></script>
+  <script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" charset="utf-8"></script>
+  <script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/javascript");
+    editor.setReadOnly(true);
+    editor.blur()
+  </script>
+  <script src="/4/main.js"></script>
+</body>
+</html>
+
+
+
