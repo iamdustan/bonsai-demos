@@ -10,106 +10,111 @@
 </body>
   <nav>
     <header>Demos</header>
-    <a href="/1/">Getting started</a>
-    <a href="/2/">The Runner Code</a>
-    <a href="/3/">User Interaction</a>
-    <a href="/4/">Running Node</a>
+    <a href="/1/">A Simple Example</a>
+    <a href="/2/">Separating Things Out</a>
+    <a href="/3/">Don&rsquo;t Forget to Listen to Your Users</a>
+    <a href="/4/">But This Is Node Knockout</a>
   </nav>
 
-  <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1>
-    <a name="telling-stories-with-bonsaijs" class="anchor" href="#telling-stories-with-bonsaijs"><span class="mini-icon mini-icon-link"></span></a>Telling Stories with Bonsai.js</h1>
+  <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+    <h1><a name="telling-stories-with-bonsaijs" class="anchor" href="#telling-stories-with-bonsaijs"><span class="mini-icon mini-icon-link"></span></a>Telling Stories with Bonsai.js</h1>
 
-    <p>Bonsai.js is a new graphics library that, unlike most graphic libraries
-    currently in the wild, ships with an SVG renderer. Not only that, but it has
-    an architecturally separate runner and renderer so that all the heavy
-    lifting can happen in an iFrame, WebWorker, or node context.</p>
+<p>Bonsai.js is a new graphics library that, unlike most graphic libraries
+currently in the wild, ships with an SVG renderer. Not only that, but it has
+an architecturally separate runner and renderer so that all the heavy
+lifting can happen in an iFrame, WebWorker, or node context.</p>
 
-    <p>Built by the amazing team at <a href="http://www.uxebu.com">Uxebu</a>, Bonsai is
-    the HTML5 library that <a href="http://www.pixelplant.com">Pixelplant</a> depends
-    on for it’s Flash conversion. If you are familiar with Flash
-    development or terminology you already have a grasp of how to create
-    with bonsai.</p>
+<p>Built by the amazing team at <a href="http://www.uxebu.com">Uxebu</a>, Bonsai is
+the HTML5 library that <a href="http://www.pixelplant.com">Pixelplant</a> depends
+on for it’s Flash conversion. If you are familiar with Flash
+development or terminology you already have a grasp of how to create
+with bonsai.</p>
 
-    <h2>
-    <a name="from-tree-level" class="anchor" href="#from-tree-level"><span class="mini-icon mini-icon-link"></span></a>From Tree Level</h2>
+<blockquote>
+<p>Note: All of this code is available at <a href="https://github.com/iamdustan/bonsai-demos">https://github.com/iamdustan/bonsai-demos</a>. To view demos, <code>git clone git@github.com:iamdustan/bonsai-demos &amp;&amp; npm start</code> then browse to <code>http://localhost:8080</code> in your favorite browser.</p>
+</blockquote>
 
-    <p>A few things to note as you walk into the bonsai forest. Due to the
-    architecturally separated runner and renderer, all of the code that
-    draws to the bonsai stage is run in a sandbox. In this sandbox you have
-    access to a large number of tools that bonsai creates for you (many
-    examples listed below under <strong>Bonsai Tools</strong>).</p>
+<h2>
+<a name="from-tree-level" class="anchor" href="#from-tree-level"><span class="mini-icon mini-icon-link"></span></a>From Tree Level</h2>
 
-    <p>The bonsai world revolves around the
-    <a href="http://docs.bonsaijs.org/Stage.html">stage</a>. The runner and renderer
-    communicate through passing messages back and forth. This is for both
-    user triggered actions (e.g. pointer events and clicks) or for things
-    you want to trigger (say, pressing a Start button).</p>
+<p>A few things to note as you walk into the bonsai forest. Due to the
+architecturally separated runner and renderer, all of the code that
+draws to the bonsai stage is run in a sandbox. In this sandbox you have
+access to a large number of tools that bonsai creates for you (many
+examples listed below under <strong>Bonsai Tools</strong>).</p>
 
-    <h2>
-    <a name="bonsai-tools" class="anchor" href="#bonsai-tools"><span class="mini-icon mini-icon-link"></span></a>Bonsai Tools</h2>
+<p>The bonsai world revolves around the
+<a href="http://docs.bonsaijs.org/Stage.html">stage</a>. The runner and renderer
+communicate through passing messages back and forth. This is for both
+user triggered actions (e.g. pointer events and clicks) or for things
+you want to trigger (say, pressing a Start button).</p>
 
-    <p>These are just a few of the objects bonsai makes available to you in the
-    runner context.</p>
+<h2>
+<a name="bonsai-tools" class="anchor" href="#bonsai-tools"><span class="mini-icon mini-icon-link"></span></a>Bonsai Tools</h2>
 
-    <p><strong><a href="http://docs.bonsaijs.org/overview/SimpleShapes.html">Simple shapes</a></strong></p>
+<p>These are just a few of the objects bonsai makes available to you in the
+runner context.</p>
 
-    <ul>
-    <li>Rect</li>
-    <li>Arc</li>
-    <li>Circle</li>
-    <li>Ellipse</li>
-    <li>Polgyon</li>
-    <li>Star</li>
-    </ul><p><strong><a href="http://docs.bonsaijs.org/overview/Assets.html">Assets</a></strong></p>
+<p><strong><a href="http://docs.bonsaijs.org/overview/SimpleShapes.html">Simple shapes</a></strong></p>
 
-    <ul>
-    <li>Audio</li>
-    <li>Bitmap</li>
-    <li>FontFamily</li>
-    <li>Movie</li>
-    <li>Video</li>
-    </ul><p><strong>And more...</strong></p>
+<ul>
+<li>Rect</li>
+<li>Arc</li>
+<li>Circle</li>
+<li>Ellipse</li>
+<li>Polgyon</li>
+<li>Star</li>
+</ul><p><strong><a href="http://docs.bonsaijs.org/overview/Assets.html">Assets</a></strong></p>
 
-    <ul>
-    <li><a href="http://docs.bonsaijs.org/module-animation.Animation.html">Animation</a></li>
-    <li><a href="http://docs.bonsaijs.org/module-animation.KeyframeAnimation.html">KeyfameAnimation</a></li>
-    <li><a href="http://docs.bonsaijs.org/Matrix.html">Matrix</a></li>
-    <li><a href="http://docs.bonsaijs.org/module-gradient.LinearGradient.html">LinearGradient</a></li>
-    </ul><h2>
-    <a name="let-the-fun-begin" class="anchor" href="#let-the-fun-begin"><span class="mini-icon mini-icon-link"></span></a>Let The Fun Begin</h2>
+<ul>
+<li>Audio</li>
+<li>Bitmap</li>
+<li>FontFamily</li>
+<li>Movie</li>
+<li>Video</li>
+</ul><p><strong>And more...</strong></p>
 
-    <p>Getting started with bonsai always seems to be the biggest hurdle. The
-    documentation has recently been super-sized with an explanation of the
-    execution environment that is required reading. <a href="http://docs.bonsaijs.org/overview/Execution.html">Bonsai
-    execution</a>.</p>
+<ul>
+<li><a href="http://docs.bonsaijs.org/module-animation.Animation.html">Animation</a></li>
+<li><a href="http://docs.bonsaijs.org/module-animation.KeyframeAnimation.html">KeyfameAnimation</a></li>
+<li><a href="http://docs.bonsaijs.org/Matrix.html">Matrix</a></li>
+<li><a href="http://docs.bonsaijs.org/module-gradient.LinearGradient.html">LinearGradient</a></li>
+</ul><h2>
+<a name="let-the-fun-begin" class="anchor" href="#let-the-fun-begin"><span class="mini-icon mini-icon-link"></span></a>Let The Fun Begin</h2>
 
-    <p>Through the following examples, you will have everything you need to
-    know to get started making awesome.</p>
+<p>Getting started with bonsai always seems to be the biggest hurdle. The
+documentation has recently been super-sized with an explanation of the
+execution environment that is required reading: <a href="http://docs.bonsaijs.org/overview/Execution.html">Bonsai
+execution</a>.</p>
 
-    <h3>
-    <a name="grab-the-latest-bonsai" class="anchor" href="#grab-the-latest-bonsai"><span class="mini-icon mini-icon-link"></span></a>Grab the Latest Bonsai</h3>
+<p>Through the following examples, you will have everything you need to
+know to get started making awesome.</p>
 
-    <p>Releases happen very regularly with new features added and bugs
-    smashed. The latest official release is always available on
-    <a href="https://github.com/uxebu/bonsai/downloads">github</a> or from the
-    <a href="http://cdnjs.cloudflare.com/ajax/libs/bonsai/0.4.1/bonsai.min.js">cdn</a>.
-    Additionally, if you are like me and feeling a bit edgier you could
-    just build the latest copy from master yourself (requires java to run
-    Closure Compiler):</p>
+<h3>
+<a name="grab-the-latest-bonsai" class="anchor" href="#grab-the-latest-bonsai"><span class="mini-icon mini-icon-link"></span></a>Grab the Latest Bonsai</h3>
 
-    <pre><code>cd /tmp; git clone git@github.com:Uxebu/bonsai &amp;&amp; make build
-cp ./dist/bonsai.js YOUR_DIRECTORY_HERE</code></pre>
+<p>Releases happen very regularly with new features added and bugs
+smashed. The latest official release is always available on
+<a href="https://github.com/uxebu/bonsai/downloads">github</a> or from the
+<a href="http://cdnjs.cloudflare.com/ajax/libs/bonsai/0.4.1/bonsai.min.js">cdn</a>.
+Additionally, if you are like me and feeling a bit edgier you could
+just build the latest copy from master yourself (requires java to run
+Closure Compiler):</p>
 
-    <h3>
-    <a name="a-simple-example" class="anchor" href="#a-simple-example"><span class="mini-icon mini-icon-link"></span></a>A Simple Example</h3>
+<pre><code>cd /tmp; git clone git@github.com:Uxebu/bonsai &amp;&amp; make build
+cp ./dist/bonsai.js YOUR_DIRECTORY_HERE
+</code></pre>
 
-    <p>To start things off we’re going to do the smallest amount of
-    boilerplate necessary and demonstrate a few of the methods and sugar
-    that Bonsai provides.</p>
-   
-    <p><a href="/1-start/">View demo</a></p>
+<h3>
+<a name="a-simple-example" class="anchor" href="#a-simple-example"><span class="mini-icon mini-icon-link"></span></a>A Simple Example</h3>
 
-    <div class="highlight"><pre><span class="c1">// pass a function through as the code parameter</span>
+<p>To start things off we’re going to do the smallest amount of
+boilerplate necessary and demonstrate a few of the methods and sugar
+that Bonsai provides.</p>
+
+<p><a href="/1/">View demo</a></p>
+
+<div class="highlight"><pre><span class="c1">// pass a function through as the code parameter</span>
 
 <span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'movie'</span><span class="p">);</span>
 <span class="nx">bonsai</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="nx">movie</span><span class="p">,</span> <span class="p">{</span>
@@ -132,26 +137,25 @@ cp ./dist/bonsai.js YOUR_DIRECTORY_HERE</code></pre>
       <span class="nx">y</span><span class="o">:</span> <span class="mi">0</span>
     <span class="p">});</span>
 <span class="p">}</span>
-    </pre></div>
+</pre></div>
 
-    <p>As you can see, our instance of a Rect has some helpful methods
-    accompanying it, and don’t forget the lovely color, <code>random</code>.
-    All displayable objects are an instance of a
-    <a href="http://docs.bonsaijs.org/DisplayObject.html">DisplayObject</a>, aptly
-    title. </p>
+<p>As you can see, our instance of a Rect has some helpful methods
+accompanying it, and don’t forget the lovely color, <code>random</code>.
+. All displayable objects are an instance of a
+<a href="http://docs.bonsaijs.org/DisplayObject.html">DisplayObject</a>, aptly
+title. </p>
 
-    <p>Clearly, this method will not scale to complex code, so let’s
-    break that off.</p>
+<p>Clearly, this method will not scale to complex code, so let’s
+break that off.</p>
 
-    <h3>
-    <a name="separating-things-out" class="anchor" href="#separating-things-out"><span class="mini-icon mini-icon-link"></span></a>Separating Things Out</h3>
+<h3><a name="separating-things-out" class="anchor" href="#separating-things-out"><span class="mini-icon mini-icon-link"></span></a>Separating Things Out</h3>
 
-    <p>Let’s begin by moving that runner method into a file to call its
-    own.</p>
+<p>Let’s begin by moving that runner method into a file to call its
+own, following the Flash semantics, <code>movie.js</code>.</p>
 
-    <p><a href="/2/">View demo</a></p>
+<p><a href="/2/">View demo</a></p>
 
-    <div class="highlight"><pre><span class="c1">// movie.js</span>
+<div class="highlight"><pre><span class="c1">// movie.js</span>
 <span class="kd">var</span> <span class="nx">rect</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
 <span class="nx">rect</span>
   <span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="s1">'random'</span><span class="p">)</span>
@@ -170,25 +174,27 @@ cp ./dist/bonsai.js YOUR_DIRECTORY_HERE</code></pre>
 <div class="highlight"><pre><span class="c1">// app.js</span>
 <span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'movie'</span><span class="p">);</span>
 <span class="nx">bonsai</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="nx">movie</span><span class="p">,</span> <span class="p">{</span>
-  <span class="nx">movie</span><span class="o">:</span> <span class="s1">'path/to/movie.js'</span><span class="p">,</span>
-  <span class="nx">plugins</span><span class="o">:</span> <span class="p">[]</span>
+  <span class="nx">url</span><span class="o">:</span> <span class="s1">'path/to/movie.js'</span><span class="p">,</span>
+  <span class="nx">plugins</span><span class="o">:</span> <span class="p">[],</span>
   <span class="nx">width</span><span class="o">:</span> <span class="mi">600</span><span class="p">,</span>
   <span class="nx">height</span><span class="o">:</span> <span class="mi">400</span>
 <span class="p">});</span>
-    </pre></div>
+</pre></div>
 
-    <p>Well, that was easy enough. Bonsai here is taking the file you specify
-    under the <code>movie</code> key and loading into the appropriate context.</p>
+<p>Well, that was easy enough. Bonsai here is taking the file you specify
+under the <code>url</code> key and loading into the appropriate runner context.</p>
 
-    <h3>
-    <a name="don%E2%80%99t-forget-to-listen-to-your-users" class="anchor" href="#don%E2%80%99t-forget-to-listen-to-your-users"><span class="mini-icon mini-icon-link"></span></a>Don’t Forget to Listen to Your Users</h3>
+<h3>
+<a name="don%E2%80%99t-forget-to-listen-to-your-users" class="anchor" href="#don%E2%80%99t-forget-to-listen-to-your-users"><span class="mini-icon mini-icon-link"></span></a>Don’t Forget to Listen to Your Users</h3>
 
-    <p>Let’s continue adding complexity and add a second file to handle
-    user interactions. Bonsai pipes all user interaction into the runner
-    context. This is imperative since the runner has no concept of things
-    like pointer events or <code>event.pageX</code></p>
+<p>Let’s continue adding complexity and add a second file to handle
+user interactions. Bonsai pipes all user interaction into the runner
+context. This is imperative since the runner has no concept of things
+like pointer events or <code>event.pageX</code></p>
 
-    <div class="highlight"><pre><span class="c1">// ui.js</span>
+<p><a href="/3/">View demo</a></p>
+
+<div class="highlight"><pre><span class="c1">// ui.js</span>
 <span class="nx">stage</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'message'</span><span class="p">,</span> <span class="nx">handleMessage</span><span class="p">)</span>
 <span class="nx">stage</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'pointerdown'</span><span class="p">,</span> <span class="nx">handlePointerdown</span><span class="p">)</span>
 <span class="nx">stage</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'keypress'</span><span class="p">,</span> <span class="nx">handleKeypress</span><span class="p">)</span>
@@ -202,9 +208,15 @@ cp ./dist/bonsai.js YOUR_DIRECTORY_HERE</code></pre>
 <span class="p">}</span>
 
 <span class="kd">function</span> <span class="nx">handlePointerdown</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">new</span> <span class="nx">Rect</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">stageX</span><span class="p">,</span> <span class="nx">e</span><span class="p">.</span><span class="nx">stageY</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="s1">'random'</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">stage</span><span class="p">);</span>
+  <span class="nx">handleMessage</span><span class="p">({</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">'Rect'</span><span class="p">,</span>
+    <span class="nx">attr</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">x</span><span class="o">:</span> <span class="nx">e</span><span class="p">.</span><span class="nx">stageX</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span>
+      <span class="nx">y</span><span class="o">:</span> <span class="nx">e</span><span class="p">.</span><span class="nx">stageY</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span>
+      <span class="nx">w</span><span class="o">:</span> <span class="mi">50</span><span class="p">,</span>
+      <span class="nx">h</span><span class="o">:</span> <span class="mi">50</span>
+    <span class="p">}</span>
+  <span class="p">})</span>
 <span class="p">}</span>
 
 <span class="kd">function</span> <span class="nx">handleKeypress</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
@@ -215,31 +227,46 @@ cp ./dist/bonsai.js YOUR_DIRECTORY_HERE</code></pre>
 <div class="highlight"><pre><span class="c1">// app.js</span>
 <span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'movie'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">stage</span> <span class="o">=</span> <span class="nx">bonsai</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="nx">movie</span><span class="p">,</span> <span class="p">{</span>
-  <span class="nx">movie</span><span class="o">:</span> <span class="s1">'path/to/movie.js'</span><span class="p">,</span>
-  <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span><span class="s1">'path/to/ui.js'</span><span class="p">]</span>
+  <span class="nx">url</span><span class="o">:</span> <span class="s1">'path/to/movie.js'</span><span class="p">,</span>
+  <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span><span class="s1">'path/to/ui.js'</span><span class="p">],</span>
   <span class="nx">width</span><span class="o">:</span> <span class="mi">600</span><span class="p">,</span>
   <span class="nx">height</span><span class="o">:</span> <span class="mi">400</span>
 <span class="p">});</span>
 
-<span class="nx">stage</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'message'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Hey! Someone touched me at {keyCode}! - the</span> <span class="s1">Keyboard'</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/{keyCode}/g</span><span class="p">,</span> <span class="nx">data</span><span class="p">));</span>
+<span class="nx">stage</span><span class="p">.</span><span class="nx">sendMessage</span><span class="p">({</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="s1">'Rect'</span><span class="p">,</span>
+  <span class="nx">attr</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">x</span><span class="o">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="nx">w</span><span class="o">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="nx">h</span><span class="o">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span>
+  <span class="p">}</span>
 <span class="p">});</span>
-    </pre></div>
 
-    <h3>
-    <a name="but-this-is-node-knockout" class="anchor" href="#but-this-is-node-knockout"><span class="mini-icon mini-icon-link"></span></a>But This Is Node Knockout</h3>
+<span class="nx">stage</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'message:keypress'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Hey! Someone touched me at {keyCode}! - the</span>
+<span class="s1">Keyboard'</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/{keyCode}/g</span><span class="p">,</span> <span class="nx">data</span><span class="p">));</span>
+<span class="p">});</span>
+</pre></div>
 
-    <p>Oh right. I almost forgot. We’ve just been letting bonsai manage
-    setting up the runner context in a WebWorker or iFrame so far. We need a
-    way to run this on the server and connect our thousand friends to it.
-    Very well, let’s get to it!</p>
+<h3>
+<a name="but-this-is-node-knockout" class="anchor" href="#but-this-is-node-knockout"><span class="mini-icon mini-icon-link"></span></a>But This Is Node Knockout</h3>
 
-    <p>Up to this point we’ve been starting bonsai and passing the
-    configuration object all at the same time. We will use a slightly
-    different version this time where we first call setup passing in a
-    Socket.io runner context.</p>
+<p>Oh right. I almost forgot. We’ve just been letting bonsai manage
+setting up the runner context in a WebWorker or iFrame so far. We need a
+way to run this on the server and connect our thousand friends to it.
+Very well, let’s get to it!</p>
 
-    <div class="highlight"><pre><span class="c1">// main.js</span>
+<p>Up to this point we’ve been starting bonsai and passing the
+configuration object all at the same time. We will use a slightly
+different version this time where we first call setup passing in a
+Socket.io runner context.</p>
+
+<blockquote>
+<p>Note: This demo uses a currently custom build of Bonsai that exposes a few internal utilities. Grab it here: <a href="https://github.com/uxebu/bonsai-server/blob/master/example/bonsai.js">https://github.com/uxebu/bonsai-server/blob/master/example/bonsai.js</a></p>
+</blockquote>
+
+<p><a href="/4/">View demo</a></p>
+
+<div class="highlight"><pre><span class="c1">// main.js</span>
 
 <span class="kd">var</span> <span class="nx">movie</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'movie'</span><span class="p">)</span>
 <span class="kd">var</span> <span class="nx">runnerContext</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">runnerUrl</span><span class="p">)</span> <span class="p">{</span>
@@ -277,13 +304,13 @@ cp ./dist/bonsai.js YOUR_DIRECTORY_HERE</code></pre>
   <span class="p">})</span>
   <span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="nx">movie</span><span class="p">,</span> <span class="p">{</span>
     <span class="nx">width</span><span class="o">:</span> <span class="mi">600</span><span class="p">,</span>
-    <span class="nx">height</span><span class="o">:</span> <span class="mi">400</span>
+    <span class="nx">height</span><span class="o">:</span> <span class="mi">600</span>
   <span class="p">});</span>
-    </pre></div>
+</pre></div>
 
-    <div class="highlight"><pre><span class="c1">// movie.js</span>
+<div class="highlight"><pre><span class="c1">// movie.js</span>
 <span class="c1">// this is read by and run on the server</span>
-<span class="c1">// @todo REWRITE THIS YOURSELF</span>
+<span class="c1">// demo from http://demos.bonsaijs.org/demos/circles/index.html</span>
 <span class="kd">var</span> <span class="nx">centerX</span> <span class="o">=</span> <span class="mi">250</span><span class="p">,</span>
     <span class="nx">centerY</span> <span class="o">=</span> <span class="mi">250</span><span class="p">,</span>
     <span class="nx">circles</span> <span class="o">=</span> <span class="mi">180</span><span class="p">,</span>
@@ -320,18 +347,18 @@ cp ./dist/bonsai.js YOUR_DIRECTORY_HERE</code></pre>
     <span class="p">},</span> <span class="p">{</span><span class="nx">easing</span><span class="o">:</span> <span class="s1">'sineInOut'</span><span class="p">});</span>
   <span class="p">}</span>
 <span class="p">});</span>
-    </pre></div>
+</pre></div>
 
-    <div class="highlight"><pre><span class="c1">// server.js</span>
+<div class="highlight"><pre><span class="c1">// server.js</span>
 <span class="kd">var</span> <span class="nx">bonsai</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bonsai'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fs'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">bonsaiCode</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSynce</span><span class="p">(</span><span class="s1">'./movie.js'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">bonsaiCode</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="s1">'./movie.js'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">socketRenderer</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">socket</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">this</span><span class="p">.</span><span class="nx">socket</span> <span class="o">=</span> <span class="nx">socket</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kd">var</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'socket.io'</span><span class="p">).</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'socket.io'</span><span class="p">).</span><span class="nx">listen</span><span class="p">(</span><span class="mi">4000</span><span class="p">);</span>
 
 <span class="nx">socket</span><span class="p">.</span><span class="nx">sockets</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'connection'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">socket</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">movie</span> <span class="o">=</span> <span class="nx">bonsai</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="p">{</span>
@@ -352,9 +379,9 @@ cp ./dist/bonsai.js YOUR_DIRECTORY_HERE</code></pre>
   <span class="p">});</span>
 
 <span class="p">});</span>
-    </pre></div>
+</pre></div>
 
-    <div class="highlight"><pre><span class="c1">// package.json</span>
+<div class="highlight"><pre><span class="c1">// package.json</span>
 <span class="p">{</span>
   <span class="nx">name</span><span class="o">:</span> <span class="s2">"roger-rabbit"</span><span class="p">,</span>
   <span class="nx">version</span><span class="o">:</span> <span class="s2">"0.0.0"</span><span class="p">,</span>
@@ -364,28 +391,28 @@ cp ./dist/bonsai.js YOUR_DIRECTORY_HERE</code></pre>
     <span class="s2">"socket.io"</span><span class="o">:</span> <span class="s2">"~0.9.10"</span>
   <span class="p">}</span>
 <span class="p">}</span>
-    </pre></div>
+</pre></div>
 
-    <p>Here we are using the node modules socket.io and bonsai, which
-    we’re grabbing straight from the source. (Note: <code>npm install bonsai</code> will
-    return a different module.) Socket.io is responsible for keeping the
-    connection live and then just being the telephone wire transfering
-    messages from the runner to the renderers.</p>
+<p>Here we are using the node modules socket.io and bonsai, which
+we’re grabbing straight from the source. (Note: <code>npm install bonsai</code> will
+return a different module.) Socket.io is responsible for keeping the
+connection live and then just being the telephone wire transfering
+messages from the runner to the renderers.</p>
 
-    <h2>
-    <a name="additional-resources" class="anchor" href="#additional-resources"><span class="mini-icon mini-icon-link"></span></a>Additional Resources</h2>
+<h2>
+<a name="additional-resources" class="anchor" href="#additional-resources"><span class="mini-icon mini-icon-link"></span></a>Additional Resources</h2>
 
-    <p>Bonsai is a young, but active project and community. Learn more, get
-    involved, and stay connected.</p>
+<p>Bonsai is a young, but active project and community. Learn more, get
+involved, and stay connected.</p>
 
-    <ul>
-    <li>IRC on freednode at #bonsaijs</li>
-    <li><a href="http://orbit.bonsaijs.com">Online editor and examples</a></li>
-    <li><a href="http://docs.bonsaijs.com">Documentation</a></li>
-    <li>More examples:
-    <a href="https://github.com/uxebu/bonsai/tree/master/example/library">https://github.com/uxebu/bonsai/tree/master/example/library</a> (git clone
-    and open the index.html located here)</li>
-    </ul><p>I look forward to seeing what you create with Bonsai!</p>
+<ul>
+<li>IRC on freednode at #bonsaijs</li>
+<li><a href="http://orbit.bonsaijs.com">Online editor and examples</a></li>
+<li><a href="http://docs.bonsaijs.com">Documentation</a></li>
+<li>More examples:
+<a href="https://github.com/uxebu/bonsai/tree/master/example/library">https://github.com/uxebu/bonsai/tree/master/example/library</a> (git clone
+and open the index.html located here)</li>
+</ul><p>I look forward to seeing what you create with Bonsai!</p></article>
   </article>
 
 </body>

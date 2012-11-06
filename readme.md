@@ -11,7 +11,7 @@ on for it&rsquo;s Flash conversion. If you are familiar with Flash
 development or terminology you already have a grasp of how to create
 with bonsai.
 
-> Note. All of this code is available at [https://github.com/iamdustan/bonsai-demos](https://github.com/iamdustan/bonsai-demos). To view demos, `git clone git@github.com:iamdustan/bonsai-demos && npm start` then browse to `http://localhost:8080` in your favorite browser.
+> Note: All of this code is available at [https://github.com/iamdustan/bonsai-demos](https://github.com/iamdustan/bonsai-demos). To view demos, `git clone git@github.com:iamdustan/bonsai-demos && npm start` then browse to `http://localhost:8080` in your favorite browser.
 
 ## From Tree Level
 
@@ -232,7 +232,7 @@ configuration object all at the same time. We will use a slightly
 different version this time where we first call setup passing in a
 Socket.io runner context.
 
-> note: This demo uses a currently custom build of Bonsai that exposes a few internal utilities. Grab it here: https://github.com/uxebu/bonsai-server/blob/master/example/bonsai.js
+> Note: This demo uses a currently custom build of Bonsai that exposes a few internal utilities. Grab it here: https://github.com/uxebu/bonsai-server/blob/master/example/bonsai.js
 
 ``` javascript
 // main.js

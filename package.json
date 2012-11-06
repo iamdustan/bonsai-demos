@@ -7,7 +7,7 @@
     "url": "http://github.com/cloudhead/node-static"
   },
   "scripts": {
-    "start": "./run"
+    "start": "./run.js"
   },
   "version": "0.0.1",
   "dependencies": {

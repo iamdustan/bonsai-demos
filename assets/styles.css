@@ -403,6 +403,18 @@ nav a:hover {
 }
 nav+* { margin: 0 12em; }
 
+blockquote {
+  background: #fcf5d2;
+  border-left: 3px solid #F1CB1C;
+  font-size: 0.875em;
+  margin-right: 0;
+  padding: 0.333em 0.666em;
+}
+blockquote p {
+  margin: 0.5em;
+
+}
+
 /* {{{ @group demos */
 
 body.demo { padding-right: 50%; }
@@ -464,6 +476,17 @@ pre {
   padding: 0.5em 0.75em;
   border-radius: 3px;
 }
+p code,
+blockquote code {
+  background: #f8f8f8;
+  border: 1px solid #ccc;
+  display: inline-block;
+  overflow: auto;
+  padding: 0.1em 0.333em;
+  font-size: 0.875em;
+  border-radius: 3px;
+}
+
 
 .highlight .c1 { color: #998;
                  font-style: italic; }
